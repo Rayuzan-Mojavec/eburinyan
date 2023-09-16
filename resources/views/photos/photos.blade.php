@@ -6,17 +6,18 @@
             Memento Mori
         </h1>
         <a class="bg-teal-700 my-8 text-xl px-5 py-2 rounded-md text-white no-underline"
-        href="{{ route('photos.create') }}">Upload
-    </a>
-        <div class="grid grid-cols-3 gap-4 ">
+            href="{{ route('photos.create') }}">Upload
+        </a>
+        <div class="grid grid-cols-3 gap-4 justify-center">
             @if ($photos->count())
                 @foreach ($photos as $photo)
-                <img class="rounded-md drop-shadow-xl max-h-[560px] border flex mx-auto" src="{{ asset('storage/'. $photo->photos) }}" alt="">
+                    <a href="{{ route('photos.show', $photo->id) }}" class="mx-auto self-start">
+                        <img class="rounded-md drop-shadow-xl max-h-[560px] border" src="{{ asset('storage/' . $photo->photos) }}" alt="">
+                    </a>
                 @endforeach
             @else
                 <span class="font-mono text-2xl">Nothing. Upload something</span>
             @endif
         </div>
-
     </div>
 @endsection

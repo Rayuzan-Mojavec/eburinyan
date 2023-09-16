@@ -5,9 +5,9 @@
     <div class="grid grid-cols-2 gap-0 my-32 mx-auto">
         <div class="flex mx-8 max-w-full">
             @if($photo->photos)
-            <img src="{{ asset('storage/'. $photo->photos) }}" class="flex phopre max-w-full mx-auto rounded-md drop-shadow-xl">
+            <img src="{{ asset('storage/'. $photo->photos) }}" class="self-center flex phopre max-w-full mx-auto rounded-md drop-shadow-xl">
             @else
-            <img class="flex phopre max-w-full mx-auto rounded-md drop-shadow-xl" src="{{ asset('nothing/nothing.jpg') }}">
+            <img class="flex phopre max-w-full mx-auto rounded-md drop-shadow-xl self-center" src="{{ asset('nothing/nothing.jpg') }}">
             @endif
         </div>
         <div class="p-8 mx-8 mb-auto static bg-slate-400 bg-opacity-30 rounded-lg shadow-xl">
@@ -21,6 +21,7 @@
                     <div class="px-16 my-8 w-full mx-auto">
                         <div class="grid grid-cols-1 items-center">
                             <label for="photos" class="text-xl">Photo</label>
+                            <input type="hidden" name="older" value="{{ $photo->photos }}">
                             <input id="photos" type="file"
                                 class="file:text-lg text-lg file:py-2 file:px-2 file:border-gray-500 file:rounded-md bg-none ring-0 focus:outline-none @error('photos') is-invalid @enderror"
                                 name="photos" onchange="previewImage()">

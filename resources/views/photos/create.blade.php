@@ -3,7 +3,7 @@
 @section('content')
     <div class="grid grid-cols-2 gap-0 my-32 mx-auto">
         <div class="flex mx-8 max-w-full">
-            <img class="flex phopre max-w-full mx-auto rounded-md drop-shadow-xl" src="{{ asset('nothing/nothing.jpg') }}">
+            <img class="flex phopre max-w-full mx-auto rounded-md drop-shadow-xl self-center" src="{{ asset('nothing/nothing.jpg') }}" >
         </div>
         <div class="p-8 mx-8 mb-auto static bg-slate-400 bg-opacity-30 rounded-lg shadow-xl">
             <h1 class="text-4xl text-center font-bold">
