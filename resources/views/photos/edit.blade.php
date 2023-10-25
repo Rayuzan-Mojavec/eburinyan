@@ -1,16 +1,15 @@
 @extends('core.main')
 
 @section('content')
-
-    <div class="grid grid-cols-2 gap-0 my-32 mx-auto">
-        <div class="flex mx-8 max-w-full">
+    <div class="grid grid-cols-2 gap-8 px-8 my-32 w-full mx-auto">
+        <div class="flex max-w-full">
             @if($photo->photos)
             <img src="{{ asset('storage/'. $photo->photos) }}" class="self-center flex phopre max-w-full mx-auto rounded-md drop-shadow-xl">
             @else
             <img class="flex phopre max-w-full mx-auto rounded-md drop-shadow-xl self-center" src="{{ asset('nothing/nothing.jpg') }}">
             @endif
         </div>
-        <div class="p-8 mx-8 mb-auto static bg-slate-400 bg-opacity-30 rounded-lg shadow-xl">
+        <div class="p-8 mb-auto bg-slate-400 bg-opacity-30 rounded-lg shadow-xl max-w-full">
             <h1 class="text-4xl text-center font-bold">
                 Upload
             </h1>
@@ -46,8 +45,8 @@
                         </div>
                     </div>
                     <button type="submit"
-                        class="mx-auto flex text-center bg-teal-700 text-xl px-5 py-2 rounded-md text-white no-underline">
-                        Submit
+                        class="mx-auto flex text-center bg-teal-700 px-5 py-2 rounded-md text-white no-underline">
+                        <i class="bi bi-floppy text-2xl"></i>
                     </button>
                 </div>
             </form>

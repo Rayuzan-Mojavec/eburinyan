@@ -5,19 +5,25 @@
         <h1 class="text-4xl text-center font-bold">
             Memento Mori
         </h1>
-        <a class="bg-teal-700 my-8 text-xl px-5 py-2 rounded-md text-white no-underline"
-            href="{{ route('photos.create') }}">Upload
+        <a class="bg-teal-700 my-8 mx-auto px-5 py-2 rounded-md text-white no-underline"
+            href="{{ route('photos.create') }}">
+            <i class="bi bi-plus-lg text-2xl"></i>
         </a>
-        <div class="grid grid-cols-3 gap-4 justify-center">
             @if ($photos->count())
+            <div class="grid grid-cols-3 gap-4 mx-auto justify-items-center">
                 @foreach ($photos as $photo)
                     <a href="{{ route('photos.show', $photo->id) }}" class="mx-auto self-start">
-                        <img class="rounded-md drop-shadow-xl max-h-[560px] border" src="{{ asset('storage/' . $photo->photos) }}" alt="">
+                        <img class="rounded-md drop-shadow-xl mx-auto max-h-[560px] border" src="{{ asset('storage/' . $photo->photos) }}" alt=""/>
                     </a>
                 @endforeach
+            </div>
             @else
-                <span class="font-mono text-2xl">Nothing. Upload something</span>
+            <div class="text-center flex">
+                <h2 class="font-mono text-2xl flex text-center">Nothing. Upload something</h2>
+            </div>
             @endif
+        <div class="mt-6">
+        {{ $photos->links() }}
         </div>
     </div>
 @endsection

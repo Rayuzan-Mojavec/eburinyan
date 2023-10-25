@@ -7,19 +7,22 @@
         </h1>
         <div class="grid grid-cols-1 my-8">
             @if ($photo->photos)
-                <img src="{{ asset('storage/'. $photo->photos) }}" alt="" class="flex mx-auto w-3/4 rounded-md drop-shadow-2xl">
+                <img src="{{ asset('storage/'. $photo->photos) }}" alt="" class="flex mx-auto w-5/6 rounded-md drop-shadow-2xl">
             @else
                 <span>Where?</span>
             @endif
         </div>
         <div class="grid grid-cols-2 gap-4 text-center">
             <a href="{{ route('photos.edit', $photo->id) }}"
-                class="bg-yellow-700 text-xl px-5 py-2 rounded-md text-white no-underline">Edit</a>
+                class="bg-yellow-700  px-5 py-2 rounded-md text-white no-underline">
+                <i class="bi bi-pen text-2xl"></i>
+            </a>
             <form action="{{ route('photos.destroy', $photo->id) }}" method="post">
                 @method('delete')
                 @csrf
-                <button class="bg-red-700 text-xl px-5 py-2 rounded-md text-white no-underline"
-                    onclick="return confirm('Yakin dek?')">Delete
+                <button class="bg-red-700 px-5 py-2 rounded-md text-white no-underline"
+                    onclick="return confirm('Yakin dek?')">
+                    <i class="bi bi-trash text-2xl"></i>
                 </button>
             </form>
         </div>
